@@ -1,29 +1,44 @@
 const Pet = require('../src/pet');
 
-describe('constructor', () => {
+describe('pet', () => {
 
-  it('sets the name property', () => {
-    const pet = new Pet('Fido');
+  let pet 
+  beforeEach(() => {
+    pet = new Pet('Fido')
+  }) 
+  describe('constructor', () => {
 
-    expect(pet.name).toEqual('Fido');
+    it('sets the name property', () => {
+      
+  
+      expect(pet.name).toEqual('Fido');
+    });
   });
+  
+  describe('constructor', () => {
+  
+    it('has a initial age of 0', () => {
+      
+  
+      expect(pet.age).toEqual(0);
+    });
+  });
+  
+  describe('growUp', () => {
+    it('increments the age by 1', () => {
+      
+  
+      pet.growUp();
+  
+      expect(pet.age).toEqual(1);
+    });
+  });
+    it('increases hunger and descreases fitness as the pet ages.' , () => {
+       
+       pet.growUp()
+       expect(pet.age).toEqual(1);    
+       expect(pet.hunger).toEqual(5);  
+       expect(pet.fitness).toEqual(7);
+    });
 });
 
-describe('constructor', () => {
-
-  it('has a initial age of 0', () => {
-    const pet = new Pet('Fido');
-
-    expect(pet.age).toEqual(0);
-  });
-});
-
-describe('growUp', () => {
-  it('increments the age by 1', () => {
-    const pet = new Pet('Fido');
-
-    pet.growUp();
-
-    expect(pet.age).toEqual(1);
-  });
-});
