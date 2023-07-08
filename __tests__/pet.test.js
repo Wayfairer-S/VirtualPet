@@ -42,3 +42,15 @@ it('increases hunger and descreases fitness as the pet ages.' , () => {
 });
 });
 
+describe('walk', () => {
+  const pet = new Pet('fido')
+
+  it('Takes the pet for a walk', () => {
+    pet.growUp();
+    pet.walk();
+    
+    expect(pet.fitness).toEqual(10);  
+
+  
+  });
+});
