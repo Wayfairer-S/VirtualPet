@@ -33,12 +33,12 @@ describe('pet', () => {
       expect(pet.age).toEqual(1);
     });
   });
-    it('increases hunger and descreases fitness as the pet ages.' , () => {
-       
-       pet.growUp()
-       expect(pet.age).toEqual(1);    
-       expect(pet.hunger).toEqual(5);  
-       expect(pet.fitness).toEqual(7);
-    });
+it('increases hunger and descreases fitness as the pet ages.' , () => {
+  
+  pet.growUp()
+  expect(pet.age).toEqual(1);    
+  expect(pet.hunger).toEqual(5);  
+  expect(pet.fitness).toEqual(7);
+});
 });
 
