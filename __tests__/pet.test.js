@@ -1,5 +1,7 @@
 const Pet = require('../src/pet');
 
+const MAXIMUM_FITNESS = 10;
+
 describe('pet', () => {
 
   let pet 
@@ -40,12 +42,11 @@ it('increases hunger and descreases fitness as the pet ages.' , () => {
   expect(pet.hunger).toEqual(5);  
   expect(pet.fitness).toEqual(7);
 });
-});
 
 describe('walk', () => {
-  const pet = new Pet('fido')
+  
 
-  it('Takes the pet for a walk', () => {
+  it('Takes the pet for a walk, never going above 10.', () => {
     pet.growUp();
     pet.walk();
     
@@ -54,3 +55,49 @@ describe('walk', () => {
   
   });
 });
+
+
+describe('feed', () => {
+  
+
+  it('Feeds the pet, decreasing its hunger level by 3 and never below 0.' , () => {
+      pet.growUp();
+      pet.feed();
+      expect(pet.hunger).toEqual(2);
+  });
+});
+
+describe('checkup', () => {
+  it('Checks if the pet is hungry', () => {
+    pet.hunger = 6;
+
+    expect(pet.checkUp()).toBe('Im hungry!');
+
+  });
+
+  it('Checks if the pot needs a walk', () => {
+    pet.fitness = 2;
+
+    expect(pet.checkUp()).toBe('I need a walk!');
+  });
+
+  it('Checks if both properties of hunger and fitness apply', () => {
+    pet.hunger = 6;
+    pet.fitness = 2;
+  
+    expect(pet.checkUp()).toBe("Im hungry and I need a walk!");
+  });
+
+  it('Checks if both properties apply, and if not returns everything is fine.', ()=> {
+    pet.hunger = 4;
+    pet.hunger = 4;
+
+    expect(pet.checkUp()).toBe('Im fine for now. Woof!')
+
+  });
+});
+
+
+});
+
+
