@@ -35,4 +35,19 @@ Pet.prototype.checkUp = function() {
     return ('I need a walk!');
 };
 
+Pet.prototype.isAlive = function() {
+  if (this.hunger >= 10)
+    return 'The pet has died.';
+  if (this.fitness <= 0)
+    return 'The pet has died.';
+  if (this.age >= 30)
+    return 'The pet has died.';
+  
+  return 'The pet is alive and well!';
+};
+
+
+
+
+
 module.exports = Pet;

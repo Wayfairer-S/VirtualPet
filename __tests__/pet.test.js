@@ -75,7 +75,7 @@ describe('checkup', () => {
 
   });
 
-  it('Checks if the pot needs a walk', () => {
+  it('Checks if the pet needs a walk', () => {
     pet.fitness = 2;
 
     expect(pet.checkUp()).toBe('I need a walk!');
@@ -92,8 +92,21 @@ describe('checkup', () => {
     pet.hunger = 4;
     pet.hunger = 4;
 
-    expect(pet.checkUp()).toBe('Im fine for now. Woof!')
+    expect(pet.checkUp()).toBe('Im fine for now. Woof!');
 
+  });
+});
+
+describe('isDead', () => {
+  it('Checks if the pets low stats has killed it', () => {
+   pet.hunger = 10;
+   pet.fitness = 0;
+   pet.age = 30;
+   
+   pet.isAlive();
+
+   expect(pet.isAlive()).toBe('The pet has died.')
+  
   });
 });
 
