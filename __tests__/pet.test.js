@@ -58,12 +58,16 @@ describe('walk', () => {
 
 
 describe('feed', () => {
-  
-
   it('Feeds the pet, decreasing its hunger level by 3 and never below 0.' , () => {
       pet.growUp();
       pet.feed();
+    
       expect(pet.hunger).toEqual(2);
+  });
+
+  it('throws an error if the pet is not alive', () => {
+    pet.age = 30;
+    expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
   });
 });
 
@@ -97,11 +101,11 @@ describe('checkup', () => {
   });
 });
 
-describe('isDead', () => {
+describe('isAlive', () => {
   it('Checks if the pets low stats has killed it', () => {
    pet.hunger = 10;
    pet.fitness = 0;
-   pet.age = 30;
+   pet.age = 35;
    
    pet.isAlive();
 
