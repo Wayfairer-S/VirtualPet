@@ -109,8 +109,7 @@ describe('isAlive', () => {
    
    pet.isAlive();
 
-   expect(pet.isAlive()).toBe('The pet has died.')
-  
+   expect(pet.isAlive()).toBe(false)
   });
 });
 
